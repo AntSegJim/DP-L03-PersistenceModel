@@ -162,4 +162,16 @@
 		</property>
 	</bean>
 	
+	<!-- Word -->	
+	<bean id="word1" class="domain.Word">
+		<property name="name" value="hola" />
+		<property name="value" value="0" />
+	</bean>
+	
+	<bean id="word2" class="domain.Word">
+		<property name="name" value="palabrota" />
+		<property name="value" value="1" />
+	</bean>
+	
+	
 </beans>
