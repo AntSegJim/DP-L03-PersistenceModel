@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="customer" />
+		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="referee" />
+		<property name="password" value="91ec1f9324753048c0096d036referee" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REFEREE" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="sponsor" />
+		<property name="password" value="91ec1f9324753048c0096d036sponsor" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="SPONSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="handyWorker" />
+		<property name="password" value="91ec1f9324753048c0handyWorker" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="HANDYWORKER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- ProfilesSocialNetwork -->
+	
+	<bean id="profileSocialNetwork1" class="domain.ProfileSocialNetwork">
+		<property name="nickName" value="Frank Cuesta" />
+		<property name="nameSocialNetwork" value="twitter" />
+		<property name="linkProfile" value="https://twitter.com/Frank_Cuesta" />
+	</bean>	
+	
+	<bean id="profileSocialNetwork2" class="domain.ProfileSocialNetwork">
+		<property name="nickName" value="Leo Messi" />
+		<property name="nameSocialNetwork" value="facebook" />
+		<property name="linkProfile" value="https://es-es.facebook.com/leomessi/" />
+	</bean>	
+	
+	<!-- Actor -->
+	
+	<bean id="actor1" class="domain.Actor">
+		<property name="name" value="Cristian" />
+		<property name="middleName" value="" />
+		<property name="surname" value="Lorca" />
+		<property name="photo" value="https://www.instagram.com/p/BpxFMjlgfsC/" />
+		<property name="email" value="cristian@hotmail.com" />
+		<property name="phone" value="+34 620510520" />
+		<property name="adress" value="SEVILLA" />
+		<property name="numberSocialProfiles" value="3" />
+		<property name="userAccount" ref="userAccount2" />
+		<property name="profileSocialNetwork">
+			<list>
+				<ref bean="profileSocialNetwork1" />
+				<ref bean="profileSocialNetwork2" />
+			</list>
+		</property>
+		<property name="messageBox">
+			<list>
+				<ref bean="messageBox1" />
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- MessageBox -->
+	<bean id="messageBox1" class="domain.MessageBox">
+		<property name="name" value="Spam box" />
+		<property name="messages">
+			<list>
+				<ref bean="message1" />
+			</list>
+		</property>
+	</bean>
+	
+		<bean id="messageBox2" class="domain.MessageBox">
+		<property name="name" value="Trash box" />
+		<property name="messages">
+			<list>
+				<ref bean="message1" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="messageBox3" class="domain.MessageBox">
+		<property name="name" value="Out box" />
+		<property name="messages">
+			<list>
+				<ref bean="message1" />
+			</list>
+		</property>
+	</bean>
+		
+	<!-- Message -->	
+	<bean id="message1" class="domain.Message">
+		<property name="moment" value="05/06/2018" />
+		<property name="subject" value="Correo" />
+		<property name="body" value="Este es un mensaje que estoy escribiendo para popular la base de datos" />
+		<property name="priority" value="1" />
+		<property name="tag" value="tag" />
+		<property name="sender" ref="actor1" />
+		<property name="receiver" ref="actor1" />
+		<property name="messageBox">
+			<list>
+				<ref bean="messageBox1" />
+			</list>
+		</property>
+	</bean>
+	
+</beans>
