@@ -4,10 +4,16 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class Endorsement extends DomainEntity {
 
 	private Date				moment;
@@ -33,7 +39,7 @@ public class Endorsement extends DomainEntity {
 	public void setComments(final Collection<String> comments) {
 		this.comments = comments;
 	}
-
+	@ManyToOne
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}
@@ -41,7 +47,7 @@ public class Endorsement extends DomainEntity {
 	public void setHandyWorker(final HandyWorker handyWorker) {
 		this.handyWorker = handyWorker;
 	}
-
+	@ManyToOne
 	public Customer getCustomer() {
 		return this.customer;
 	}

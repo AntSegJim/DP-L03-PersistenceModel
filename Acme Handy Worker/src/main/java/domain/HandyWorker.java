@@ -40,7 +40,7 @@ public class HandyWorker extends Actor {
 	public void setScore(final Integer score) {
 		this.score = score;
 	}
-	@OneToMany
+	@OneToMany(mappedBy = "handyWorker")
 	public Collection<Endorsement> getEndorseHWorker() {
 		return this.endorseHWorker;
 	}
@@ -48,7 +48,7 @@ public class HandyWorker extends Actor {
 	public void setEndorseHWorker(final Collection<Endorsement> endorseHWorker) {
 		this.endorseHWorker = endorseHWorker;
 	}
-	@OneToMany
+	@OneToMany(mappedBy = "handyWorker")
 	public Collection<Endorsement> getReceiveEndorseFromHWorker() {
 		return this.receiveEndorseFromHWorker;
 	}
@@ -56,7 +56,7 @@ public class HandyWorker extends Actor {
 	public void setReceiveEndorseFromHWorker(final Collection<Endorsement> receiveEndorseFromHWorker) {
 		this.receiveEndorseFromHWorker = receiveEndorseFromHWorker;
 	}
-
+	@OneToMany(mappedBy = "handyWorker")
 	public Collection<Application> getApplicacion() {
 		return this.Applicacion;
 	}
@@ -64,7 +64,7 @@ public class HandyWorker extends Actor {
 	public void setApplicacion(final Collection<Application> applicacion) {
 		this.Applicacion = applicacion;
 	}
-
+	@OneToMany
 	public Collection<Curricula> getCurricula() {
 		return this.curricula;
 	}
@@ -72,7 +72,7 @@ public class HandyWorker extends Actor {
 	public void setCurricula(final Collection<Curricula> curricula) {
 		this.curricula = curricula;
 	}
-
+	@OneToMany
 	public Collection<Tutorial> getTutorial() {
 		return this.tutorial;
 	}

@@ -4,8 +4,14 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Pattern;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class Filter extends DomainEntity {
 
 	private String					ticker;
@@ -77,7 +83,7 @@ public class Filter extends DomainEntity {
 	public void setHighPrice(final Double highPrice) {
 		this.highPrice = highPrice;
 	}
-
+	@ManyToOne
 	public Collection<Warranty> getWarranty() {
 		return this.warranty;
 	}
@@ -85,7 +91,7 @@ public class Filter extends DomainEntity {
 	public void setWarranty(final Collection<Warranty> warranty) {
 		this.warranty = warranty;
 	}
-
+	@ManyToOne
 	public Collection<Category> getCategory() {
 		return this.category;
 	}

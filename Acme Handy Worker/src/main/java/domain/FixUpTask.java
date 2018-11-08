@@ -4,9 +4,16 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class FixUpTask extends DomainEntity {
 
 	private String					ticker;
@@ -26,6 +33,7 @@ public class FixUpTask extends DomainEntity {
 	//Getters and Setters
 
 	@Pattern(regexp = "(^[0-9]{6}[-][A-Z0-9] {6}$)")
+	@Column(unique = true)
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -98,7 +106,7 @@ public class FixUpTask extends DomainEntity {
 	public void setWarranty(final Warranty warranty) {
 		this.warranty = warranty;
 	}
-
+	@OneToMany
 	public Collection<Complaint> getComplaint() {
 		return this.complaint;
 	}
@@ -107,6 +115,7 @@ public class FixUpTask extends DomainEntity {
 		this.complaint = complaint;
 	}
 
+	@OneToMany(mappedBy = "fixUpTask")
 	public Collection<Application> getApplication() {
 		return this.application;
 	}

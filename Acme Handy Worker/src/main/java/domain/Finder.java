@@ -4,6 +4,14 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+@Entity
+@Access(AccessType.PROPERTY)
 public class Finder extends DomainEntity {
 
 	private Date					moment;
@@ -20,7 +28,7 @@ public class Finder extends DomainEntity {
 	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}
-
+	@ManyToMany
 	public Collection<FixUpTask> getFixUpTask() {
 		return this.fixUpTask;
 	}
@@ -28,7 +36,7 @@ public class Finder extends DomainEntity {
 	public void setFixUpTask(final Collection<FixUpTask> fixUpTask) {
 		this.fixUpTask = fixUpTask;
 	}
-
+	@ManyToOne
 	public Collection<Filter> getFilter() {
 		return this.filter;
 	}
