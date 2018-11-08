@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.URL;
 
 public class EducationRecord extends DomainEntity {
 
-	private String				tileDiploma;
+	private String				titleDiploma;
 	private Date				startDate;
 	private Date				endDate;
 	private String				institution;
@@ -18,12 +18,12 @@ public class EducationRecord extends DomainEntity {
 	private Collection<String>	comment;
 
 
-	public String getTileDiploma() {
-		return this.tileDiploma;
+	public String getTitleDiploma() {
+		return this.titleDiploma;
 	}
 
-	public void setTileDiploma(final String tileDiploma) {
-		this.tileDiploma = tileDiploma;
+	public void setTitleDiploma(final String titleDiploma) {
+		this.titleDiploma = titleDiploma;
 	}
 	@Past
 	public Date getStartDate() {

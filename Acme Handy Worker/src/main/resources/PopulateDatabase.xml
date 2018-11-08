@@ -211,5 +211,15 @@
 		
 	</bean>
 		
+	<!-- Administrators -->	
 	
+	<bean id="administrator1" class="domain.Administrator" >
+		<property name="name" value="Cristian" />
+		<property name="surname" value="Lorca" />
+		<property name="categories">
+			<list>
+				<ref bean="soonCategory2" />
+			</list>
+		</property>
+	</bean>
 </beans>
