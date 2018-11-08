@@ -255,9 +255,270 @@
 		<property name="surname" value="Segura" />
 		<property name="sponsorship">
 			<list>
-				<ref bean="sponsorhip1" />
-				<ref bean="sponsorhip2" />
+				<ref bean="sponsorship1" />
+				<ref bean="sponsorship2" />
 			</list>
 		</property>
 	</bean>
+	
+	
+	
+	<!-- Picture -->
+	<bean id= "picture1" class="domain.Picture">
+		<property name="picture" value="https://goo.gl/images/BBstA5"></property>
+	</bean>
+	
+	<bean id="picture2" class="domain.Picture">
+		<property name="picture" value="https://goo.gl/images/C8yiYE"></property>
+	</bean>
+	
+	<bean id="picture3" class="domain.Picture">
+		<property name="picture" value="https://goo.gl/images/dLjah6"></property>
+	</bean>
+	
+	
+	<!-- Section -->
+	<bean id="section1" class="domain.Section">
+		<property name="number" value="1"></property>
+		<property name="title" value="Sección 1"></property>
+		<property name="pieceOfText" value="Texto de prueba 1"></property>
+	</bean>
+	
+	<bean id="section2" class="domain.Section">
+		<property name="number" value="2"></property>
+		<property name="title" value="Sección 2"></property>
+		<property name="pieceOfText" value="texto de prueba 2"></property>
+	</bean>
+	
+	
+	
+	<!-- CreditCard -->
+	<bean id="creditCard1" class="domain.CreditCard">
+		<property name="holderName" value="nombre1"></property>
+		<property name="brandName" value="VISA"></property>
+		<property name="number" value="123321"></property>
+		<property name="expirationMonth" value="3"></property>
+		<property name="expirationYear" value="2019"></property>
+		<property name="CW" value="101"></property>
+	</bean>
+	
+	<bean id="creditCard2" class="domain.CreditCard">
+		<property name="holderName" value="nombre2"></property>
+		<property name="brandName" value="VISA"></property>
+		<property name="number" value="321123"></property>
+		<property name="expirationMonth" value="5"></property>
+		<property name="expirationYear" value="2020"></property>
+		<property name="CW" value="201"></property>
+	</bean>
+	
+	
+	
+	<!-- Sponsorship -->
+	<bean id="sponsorship1" class="domain.Sponsorship">
+		<property name="urlBanner" value="https://www.google.com/"></property>
+		<property name="linkTargetPage" value="http://www.amazon.es"></property>
+		<property name="CreditCard" ref="creditCard1"></property>
+	</bean>
+	
+	<bean id="sponsorship2" class="domain.Sponsorship">
+		<property name="urlBanner" value="https://www.google.com/"></property>
+		<property name="linkTargetPage" value="http://www.ebay.com"></property>
+		<property name="CreditCard" ref="creditCard2"></property>
+	</bean>
+	
+	
+	<bean id="tutorial1" class="domain.Tutorial">
+	<property name="title" value="Aprender java"></property>
+	<property name="moment" value="05/06/2018"></property>
+	<property name="summary" value="Aprender java es muy facil con miguel toro"></property>
+	<property name="pictures">
+		<list>
+			<ref bean="picture1"/>
+			<ref bean="picture2"/>
+		</list>
+	
+	</property>
+	<property name="sections">
+		<list>
+			<ref bean="section1"/>
+			<ref bean="section2"/>
+		</list>
+	</property>
+	<property name="sponsorships">
+		<list>
+			<ref bean="sponsorship1"/>
+			<ref bean="sponsorship2"/>
+		</list>
+	</property>
+	</bean>
+	
+	
+	
+	
+	<!-- PersonalRecord -->
+	<bean id="personalRecord1" class="domain.PersonalRecord">
+		<property name="nameHandyWorker" value="Raúl"></property>
+		<property name="photo" value=""></property>
+		<property name="email" value="raulrma97@gmail.com"></property>
+		<property name="phone" value="+34 666666666"></property>
+		<property name="linkedInProfile" value=""></property>
+	</bean>
+	
+	<bean id="personalRecord2" class="domain.PersonalRecord">
+		<property name="nameHandyWorker" value="Antonio"></property>
+		<property name="photo" value=""></property>
+		<property name="email" value="antonio@gmail.com"></property>
+		<property name="phone" value="+100 666666662"></property>
+		<property name="linkedInProfile" value=""></property>
+	</bean>
+	
+	
+	<!-- ProfessionalRecord -->
+	<bean id="professionalRecord1" class="domain.ProfessionalRecord">
+		<property name="nameCompany" value="Amazon"></property>
+		<property name="startDate"> <null/> </property>
+		<property name="endDate"> <null/></property>
+		<property name="role" value="Ingeniero"></property>
+		<property name="link" value=""></property>
+		<property name="comments">
+			<list>
+				<value>Bien</value>
+				<value>Mal</value>
+			</list>
+		</property>	
+	</bean>
+	
+	<bean id="professionalRecord2" class="domain.ProfessionalRecord">
+		<property name="nameCompany" value="Aliexpress"></property>
+		<property name="startDate" value="05/06/2017"></property>
+		<property name="endDate" value="01/02/2018"></property>
+		<property name="role" value="Analista"></property>
+		<property name="link" value=""></property>
+		<property name="comments">
+			<list>
+				<value>Correcto</value>
+				<value>Erroneo</value>
+			</list>
+		</property>	
+	</bean>
+	
+	
+	<!-- MiscellaneousRecord -->
+	<bean id="miscellaneousRecord1" class="domain.MiscellaneousRecord">
+		<property name="title" value="titulo1"></property>
+		<property name="link" value=""></property>
+		<property name="comments">
+			<list>
+				<value>"Hola jesús"</value>
+				<value>"Adios jesús"</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="miscellaneousRecord2" class="domain.MiscellaneousRecord">
+		<property name="title" value="titulo2"></property>
+		<property name="link" value=""></property>
+		<property name="comments">
+			<list>
+				<value>Hola cristian</value>
+				<value>Adios cristian</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- EndorserRecord -->
+	<bean id="endoserRecord1" class="domain.EndoserRecord">
+		<property name="name" value="titulo1"></property>
+		<property name="email" value="email1@gmail.com"></property>
+		<property name="phoneNumber" value="+34 616161616"></property>
+		<property name="linkedln" value=""></property>
+		<property name="comments">
+			<list>
+				<value>Hola antonio</value>
+				<value>Adios antonio</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="endoserRecord2" class="domain.EndoserRecord">
+		<property name="name" value="titulo2"></property>
+		<property name="email" value="email2@gmail.com"></property>
+		<property name="phoneNumber" value="+34 616161611"></property>
+		<property name="linkedln" value=""></property>
+		<property name="comments">
+			<list>
+				<value>Hola raúl</value>
+				<value>Adios raúl</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- EducationRecord -->
+	<bean id="educationRecord1" class="domain.EducationRecord">
+		<property name="titleDiploma" value="titulo1"></property>
+		<property name="startDate" value="01/02/2010"></property>
+		<property name="endDate" value="01/02/2015"></property>
+		<property name="institution" value="US"></property>
+		<property name="link" value=""></property>
+		<property name="comment">
+			<list>
+				<value>Está mal</value>
+				<value>Está bien</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="educationRecord2" class="domain.EducationRecord">
+		<property name="titleDiploma" value="titulo2"></property>
+		<property name="startDate" value="01/02/2011"></property>
+		<property name="endDate" value="01/02/2014"></property>
+		<property name="institution" value="UPO"></property>
+		<property name="link" value=""></property>
+		<property name="comment">
+			<list>
+				<value>Hola</value>
+				<value>Adios</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- Curricula -->
+	<bean id="curricula1" class="domain.Curricula">
+		<property name="ticker" value="123456"></property>
+		<property name="personalRecord" ref="personalRecord1"></property>
+		<property name="educationRecord">
+			<list>
+				<ref bean="educationRecord1"/>
+				<ref bean="educationRecord2"/>
+			</list>
+		</property>
+		<property name="professionalRecord">
+			<list>
+				<ref bean="professionalRecord1"/>
+				<ref bean="professionalRecord2"/>
+			</list>
+		</property>
+		<property name="endoserRecord">
+			<list>
+				<ref bean="endoserRecord1"/>
+				<ref bean="endoserRecord2"/>
+			</list>
+		</property>
+		<property name="miscellaneousRecord">
+			<list>
+				<ref bean="miscellaneousRecord1"/>
+				<ref bean="miscellaneousRecord2"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
 </beans>

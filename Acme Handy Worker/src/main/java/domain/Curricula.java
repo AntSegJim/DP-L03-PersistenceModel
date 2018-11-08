@@ -3,8 +3,16 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Pattern;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class Curricula extends DomainEntity {
 
 	private String							ticker;
@@ -15,7 +23,9 @@ public class Curricula extends DomainEntity {
 	private Collection<MiscellaneousRecord>	miscellaneousRecord;
 
 
-	@Pattern(regexp = "^[0-9]{6}[-][A-Z0-9] {6}$)")
+	//@Pattern(regexp = "^[0-9]{6}\\-[A-Z 0-9]{6}$")
+	@Column(unique = true)
+	@Pattern(regexp = "^[0-9]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -24,6 +34,7 @@ public class Curricula extends DomainEntity {
 		this.ticker = ticker;
 	}
 
+	@OneToOne(optional = false)
 	public PersonalRecord getPersonalRecord() {
 		return this.personalRecord;
 	}
@@ -32,6 +43,7 @@ public class Curricula extends DomainEntity {
 		this.personalRecord = personalRecord;
 	}
 
+	@OneToMany
 	public Collection<EducationRecord> getEducationRecord() {
 		return this.educationRecord;
 	}
@@ -40,6 +52,7 @@ public class Curricula extends DomainEntity {
 		this.educationRecord = educationRecord;
 	}
 
+	@OneToMany
 	public Collection<ProfessionalRecord> getProfessionalRecord() {
 		return this.professionalRecord;
 	}
@@ -48,6 +61,7 @@ public class Curricula extends DomainEntity {
 		this.professionalRecord = professionalRecord;
 	}
 
+	@OneToMany
 	public Collection<EndoserRecord> getEndoserRecord() {
 		return this.endoserRecord;
 	}
@@ -56,6 +70,7 @@ public class Curricula extends DomainEntity {
 		this.endoserRecord = endoserRecord;
 	}
 
+	@OneToMany
 	public Collection<MiscellaneousRecord> getMiscellaneousRecord() {
 		return this.miscellaneousRecord;
 	}

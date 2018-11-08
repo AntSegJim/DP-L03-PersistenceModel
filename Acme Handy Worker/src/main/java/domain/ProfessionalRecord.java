@@ -4,10 +4,18 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.URL;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class ProfessionalRecord extends DomainEntity {
 
 	private String				nameCompany;
@@ -26,6 +34,7 @@ public class ProfessionalRecord extends DomainEntity {
 		this.nameCompany = nameCompany;
 	}
 	@Past
+	@Temporal(TemporalType.DATE)
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -33,8 +42,10 @@ public class ProfessionalRecord extends DomainEntity {
 	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
-	@Past
+
 	//Opcional
+	@Past
+	@Temporal(TemporalType.DATE)
 	public Date getEndDate() {
 		return this.endDate;
 	}
@@ -61,6 +72,7 @@ public class ProfessionalRecord extends DomainEntity {
 	}
 	//Opcional
 
+	@ElementCollection
 	public Collection<String> getComments() {
 		return this.comments;
 	}

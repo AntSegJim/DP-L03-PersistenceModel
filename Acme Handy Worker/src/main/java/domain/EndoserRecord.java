@@ -3,11 +3,17 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.URL;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class EndoserRecord extends DomainEntity {
 
 	private String				name;
@@ -17,6 +23,7 @@ public class EndoserRecord extends DomainEntity {
 	private Collection<String>	comments;
 
 
+	//CAMBIO-> TIENE QUE SER NOTBLANK
 	public String getName() {
 		return this.name;
 	}
@@ -56,8 +63,11 @@ public class EndoserRecord extends DomainEntity {
 		this.linkedln = linkedln;
 	}
 
+	@ElementCollection
 	public Collection<String> getComments() {
 		return this.comments;
+		//return new ArrayList<>(this.comments);
+
 	}
 
 	public void setComments(final Collection<String> comments) {

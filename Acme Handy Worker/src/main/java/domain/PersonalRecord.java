@@ -1,11 +1,16 @@
 
 package domain;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.URL;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class PersonalRecord extends DomainEntity {
 
 	private String	nameHandyWorker;
@@ -15,6 +20,7 @@ public class PersonalRecord extends DomainEntity {
 	private String	linkedInProfile;
 
 
+	//CAMBIO-> TIENE QUE SER NOTBLANK
 	public String getNameHandyWorker() {
 		return this.nameHandyWorker;
 	}
@@ -22,7 +28,9 @@ public class PersonalRecord extends DomainEntity {
 	public void setNameHandyWorker(final String nameHandyWorker) {
 		this.nameHandyWorker = nameHandyWorker;
 	}
+
 	@URL
+	//CAMBIO-> TIENE QUE SE NOTBLANK
 	public String getPhoto() {
 		return this.photo;
 	}
@@ -47,6 +55,7 @@ public class PersonalRecord extends DomainEntity {
 
 	//"^(\+[1-9]{1}|\+[1-9]{1}+[0-9]{1}|\+[1-9]{1}+[0-9]{1}+[0-9]{1})$"
 	@Pattern(regexp = "^\\+[1-9][0-9]{0,2}\\ \\([1-9][0-9]{0,2}\\)\\ [0-9]{4,}$|^\\+[1-9][0-9]{0,2}\\ [0-9]{4,}$|^[0-9]{4,}$ ")
+	//CAMBIO->TIENE QUE SER NOTBLANK
 	public String getPhone() {
 		return this.phone;
 	}

@@ -8,6 +8,8 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+// @Entity
+// @Access(AccessType.PROPERTY)
 public class Tutorial extends DomainEntity {
 
 	private String					title;
@@ -25,6 +27,7 @@ public class Tutorial extends DomainEntity {
 		return this.title;
 	}
 	@Past
+	//@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -32,16 +35,23 @@ public class Tutorial extends DomainEntity {
 	public String getSummary() {
 		return this.summary;
 	}
+
+	//@ManyToMany
 	public Collection<Picture> getPictures() {
 		return this.pictures;
 	}
+
+	//@OneToMany(cascade = CascadeType.ALL)
 	public Collection<Section> getSection() {
 		return this.sections;
 	}
+
+	//@ManyToMany
 	public Collection<Sponsorship> getSponsorship() {
 		return this.sponsorchips;
 	}
 
+	//Setters
 	public void setTitle(final String tit) {
 		this.title = tit;
 	}

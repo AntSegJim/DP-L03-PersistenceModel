@@ -1,11 +1,17 @@
 
 package domain;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class Sponsorship extends DomainEntity {
 
 	private String		urlBanner;
@@ -14,6 +20,7 @@ public class Sponsorship extends DomainEntity {
 
 
 	@NotNull
+	@OneToOne(optional = false)
 	public CreditCard getCreditCard() {
 		return this.CreditCard;
 	}
