@@ -3,6 +3,13 @@ package domain;
 
 import java.util.Collection;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
+@Access(AccessType.PROPERTY)
 public class Customer extends Actor {
 
 	private Integer					score;
@@ -21,7 +28,7 @@ public class Customer extends Actor {
 	public void setScore(final Integer score) {
 		this.score = score;
 	}
-
+	@OneToMany
 	public Collection<FixUpTask> getFixUpTask() {
 		return this.fixUpTask;
 	}
@@ -29,7 +36,7 @@ public class Customer extends Actor {
 	public void setFixUpTask(final Collection<FixUpTask> fixUpTask) {
 		this.fixUpTask = fixUpTask;
 	}
-
+	@OneToMany
 	public Collection<Endorsement> getEndorseCustomer() {
 		return this.endorseCustomer;
 	}
@@ -37,7 +44,7 @@ public class Customer extends Actor {
 	public void setEndorseCustomer(final Collection<Endorsement> endorseCustomer) {
 		this.endorseCustomer = endorseCustomer;
 	}
-
+	@OneToMany
 	public Collection<Endorsement> getReceiveEndorseFromCustomer() {
 		return this.receiveEndorseFromCustomer;
 	}

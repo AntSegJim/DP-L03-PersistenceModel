@@ -222,4 +222,42 @@
 			</list>
 		</property>
 	</bean>
+	
+	<!-- SpamWord -->	
+	<bean id="spamWord1" class="domain.SpamWord">
+		<property name="name" value="mal"></property>
+	</bean>
+	
+	<bean id="spamWord2" class="domain.SpamWord">
+		<property name="name" value="malísimo"></property>
+	</bean>
+	
+	<!-- CreditCardType -->	
+	<bean id="creditCardType1" class="domain.CreditCardType">
+		<property name="brandName" value="VISA"></property>
+	</bean>
+	
+	<bean id="creditCardType2" class="domain.CreditCardType">
+		<property name="brandName" value="MASTER"></property>
+	</bean>
+	
+	<bean id="creditCardType3" class="domain.CreditCardType">
+		<property name="brandName" value="DINNERS"></property>
+	</bean>
+	
+	<bean id="creditCardType4" class="domain.CreditCardType">
+		<property name="brandName" value="AMEX"></property>
+	</bean>
+	
+	<!-- Sponsor -->
+	<bean id="sponsor1" class="domain.Sponsor" >
+		<property name="name" value="Antonio" />
+		<property name="surname" value="Segura" />
+		<property name="sponsorship">
+			<list>
+				<ref bean="sponsorhip1" />
+				<ref bean="sponsorhip2" />
+			</list>
+		</property>
+	</bean>
 </beans>
