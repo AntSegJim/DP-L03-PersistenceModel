@@ -517,7 +517,73 @@
 		</property>
 	</bean>
 	
+			<!-- Referee -->
+		
+	<bean id="referee1" class="domain.Referee" >
+	<property name="complaints">
+	<list>
+	<ref bean="complaint1"/>
+	</list>
+	</property>
+		<property name="name" value="Cristian" />
+		<property name="middleName" value="" />
+		<property name="surname" value="Lorca" />
+		<property name="photo" value="https://www.instagram.com/p/BpxFMjlgfsC/" />
+		<property name="email" value="cristian@hotmail.com" />
+		<property name="phone" value="+34 620510520" />
+		<property name="adress" value="SEVILLA" />
+		<property name="numberSocialProfiles" value="3" />
 	
+	
+	</bean>
+		<!-- Complaint -->
+			<bean id="complaint1" class="domain.Complaint">
+	    <property name="ticker" value="041109-A1B2C3" />
+		<property name="moment" value="06/06/2018" />
+		<property name="description" value="Primera queja de prueba" />
+		<property name="numberAttachments" value="2" />
+		<property name="report">
+		<list>
+		<ref bean="report1"/>
+		</list>
+		</property>
+		</bean>
+		<!-- Report -->
+			<bean id="report1" class="domain.Report">
+		<property name="moment" value="04/06/2018"/>
+		<property name="description" value="Primer report de prueba" />
+		<property name="published" value="0" />
+		<property name="note">
+		<list>
+		<ref bean="note1"/>
+		</list>
+		</property>
+		<property name="attachment">
+		<list>
+		<ref bean="attachment1"/>
+		</list>
+		</property>
+		</bean>
+		
+			<!-- Note -->
+			<bean id="note1" class="domain.Note">
+		<property name="moment" value="02/06/2018" />
+		<property name="comment" value="Primer comentario de prueba" />
+	
+		<property name="optionalComments" >
+		<list>
+		<value> Primer comentario de prueba</value>
+		<value> Segundo comentario de prueba</value>
+		</list>
+		</property>
+</bean>
+		
+		<!-- Attachment-->
+			<bean id="attachment1" class="domain.Attachment">
+		<property name="link" value="https://www.google.com" />
+	
+		</bean>
+		
 	
 	
 	

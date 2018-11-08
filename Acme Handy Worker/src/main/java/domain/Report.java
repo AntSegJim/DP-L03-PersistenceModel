@@ -4,8 +4,18 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.hibernate.validator.constraints.NotBlank;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class Report extends DomainEntity {
 
 	private Date					moment;		// : Date {NotBlank}
@@ -15,7 +25,7 @@ public class Report extends DomainEntity {
 	private Collection<Attachment>	attachment;
 
 
-	@NotBlank
+	@Temporal(TemporalType.DATE)
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -31,7 +41,7 @@ public class Report extends DomainEntity {
 	public void setDescription(final String description) {
 		this.description = description;
 	}
-	@NotBlank
+
 	public Integer getPublished() {
 		return this.published;
 	}
@@ -39,7 +49,7 @@ public class Report extends DomainEntity {
 	public void setPublished(final Integer published) {
 		this.published = published;
 	}
-
+	@OneToMany
 	public Collection<Note> getNote() {
 		return this.note;
 	}
@@ -47,7 +57,7 @@ public class Report extends DomainEntity {
 	public void setNote(final Collection<Note> note) {
 		this.note = note;
 	}
-
+	@ManyToMany
 	public Collection<Attachment> getAttachment() {
 		return this.attachment;
 	}
