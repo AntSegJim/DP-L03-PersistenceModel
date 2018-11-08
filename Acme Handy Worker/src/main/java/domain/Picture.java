@@ -1,6 +1,7 @@
 
 package domain;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
 
 public class Picture extends DomainEntity {
@@ -10,6 +11,7 @@ public class Picture extends DomainEntity {
 
 	//Getters
 	@URL
+	@NotBlank
 	public String getPicture() {
 		return this.picture;
 	}
