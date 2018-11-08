@@ -1,16 +1,20 @@
 #./src/main/resources/Entities.map
-#Wed Nov 07 12:47:40 CET 2018
-message1=26
-actor1=22
-profileSocialNetwork2=21
-profileSocialNetwork1=20
-messageBox3=25
-messageBox2=24
-word2=28
-messageBox1=23
-word1=27
-userAccount5=19
-userAccount4=18
-userAccount3=17
-userAccount2=16
-userAccount1=15
+#Thu Nov 08 11:32:51 CET 2018
+word1=31
+messageBox3=29
+messageBox2=28
+messageBox1=27
+message1=30
+actor1=26
+profileSocialNetwork2=25
+profileSocialNetwork1=24
+parentCategory=33
+userAccount5=23
+soonCategory3=36
+userAccount4=22
+userAccount3=21
+soonCategory2=35
+userAccount2=20
+soonCategory1=34
+userAccount1=19
+word2=32

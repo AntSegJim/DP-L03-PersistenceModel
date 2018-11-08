@@ -172,6 +172,44 @@
 		<property name="name" value="palabrota" />
 		<property name="value" value="1" />
 	</bean>
+
+	<!-- Category -->	
 	
+	<bean id="parentCategory" class="domain.Category">
+		<property name="name" value="Bricolage" />
+		<property name="parent" ref="parentCategory" />
+		<property name="soon">
+			<list>
+				<ref bean="soonCategory1" />
+			</list>
+		</property>
+		
+	</bean>
+	
+	<bean id="soonCategory1" class="domain.Category">
+		<property name="name" value="Muebles" />
+		<property name="parent" ref="parentCategory" />
+		<property name="soon"> <null /> </property>
+		
+	</bean>
+	
+	<bean id="soonCategory2" class="domain.Category">
+		<property name="name" value="Electrodomesticos" />
+		<property name="parent" ref="parentCategory" />
+		<property name="soon"> <null /> </property>
+		
+	</bean>
+		
+	<bean id="soonCategory3" class="domain.Category">
+		<property name="name" value="Frigorificos" />
+		<property name="parent" ref="parentCategory" />
+		<property name="soon">
+			<list>
+				<ref bean="soonCategory2" />
+			</list>
+		</property>
+		
+	</bean>
+		
 	
 </beans>
