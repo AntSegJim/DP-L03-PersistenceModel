@@ -30,7 +30,7 @@ public class Actor extends DomainEntity {
 	private String								photo;
 	private String								email;
 	private String								phone;
-	private String								adress;
+	private String								address;
 	private Integer								numberSocialProfiles;
 	private UserAccount							userAccount;
 	private Collection<ProfileSocialNetwork>	profileSocialNetwork;
@@ -97,12 +97,12 @@ public class Actor extends DomainEntity {
 	}
 
 	//OPCIONAL
-	public String getAdress() {
-		return this.adress;
+	public String getAddress() {
+		return this.address;
 	}
 
-	public void setAdress(final String adress) {
-		this.adress = adress;
+	public void setAddress(final String address) {
+		this.address = address;
 	}
 
 	//OPCIONAL

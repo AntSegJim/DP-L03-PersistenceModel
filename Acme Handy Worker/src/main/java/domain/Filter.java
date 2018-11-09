@@ -1,35 +1,34 @@
 
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Pattern;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class Filter extends DomainEntity {
 
-	private String					ticker;
-	private String					description;
-	private String					adress;
-	private Date					startDate;
-	private Date					endDate;
-	private Double					lowPrice;
-	private Double					highPrice;
+	private String		ticker;
+	private String		description;
+	private String		address;
+	private Date		startDate;
+	private Date		endDate;
+	private Double		lowPrice;
+	private Double		highPrice;
 
-	private Collection<Warranty>	warranty;
-	private Collection<Category>	category;
+	private Warranty	warranty;
+	private Category	category;
 
 
 	//Getters and Setters
-	@Pattern(regexp = "(^[0-9]{6}[-][A-Z0-9] {6}$)")
+	//@Pattern(regexp = "(^[0-9]{6}[-][A-Z0-9] {6}$)")
 	@Column(unique = true)
 	public String getTicker() {
 		return this.ticker;
@@ -47,14 +46,15 @@ public class Filter extends DomainEntity {
 		this.description = description;
 	}
 
-	public String getAdress() {
-		return this.adress;
+	public String getAddress() {
+		return this.address;
 	}
 
-	public void setAdress(final String adress) {
-		this.adress = adress;
+	public void setAddress(final String address) {
+		this.address = address;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -63,6 +63,7 @@ public class Filter extends DomainEntity {
 		this.startDate = startDate;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getEndDate() {
 		return this.endDate;
 	}
@@ -86,22 +87,22 @@ public class Filter extends DomainEntity {
 	public void setHighPrice(final Double highPrice) {
 		this.highPrice = highPrice;
 	}
-	@ElementCollection
+
 	@ManyToOne
-	public Collection<Warranty> getWarranty() {
+	public Warranty getWarranty() {
 		return this.warranty;
 	}
 
-	public void setWarranty(final Collection<Warranty> warranty) {
+	public void setWarranty(final Warranty warranty) {
 		this.warranty = warranty;
 	}
-	@ElementCollection
+
 	@ManyToOne
-	public Collection<Category> getCategory() {
+	public Category getCategory() {
 		return this.category;
 	}
 
-	public void setCategory(final Collection<Category> category) {
+	public void setCategory(final Category category) {
 		this.category = category;
 	}
 

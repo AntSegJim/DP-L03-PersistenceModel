@@ -93,7 +93,7 @@ public class Application extends DomainEntity {
 	public void setFixUpTask(final FixUpTask fixUpTask) {
 		this.fixUpTask = fixUpTask;
 	}
-	@ElementCollection
+
 	@OneToMany
 	public Collection<Phase> getPhases() {
 		return this.phases;

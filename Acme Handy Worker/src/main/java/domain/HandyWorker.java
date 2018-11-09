@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -19,7 +18,7 @@ public class HandyWorker extends Actor {
 	private Collection<Endorsement>	endorseHWorker;
 	private Collection<Endorsement>	receiveEndorseFromHWorker;
 
-	private Collection<Application>	Applicacion;
+	private Collection<Application>	application;
 
 	private Collection<Curricula>	curricula;
 
@@ -41,7 +40,7 @@ public class HandyWorker extends Actor {
 	public void setScore(final Integer score) {
 		this.score = score;
 	}
-	@ElementCollection
+
 	@OneToMany(mappedBy = "handyWorker")
 	public Collection<Endorsement> getEndorseHWorker() {
 		return this.endorseHWorker;
@@ -50,7 +49,7 @@ public class HandyWorker extends Actor {
 	public void setEndorseHWorker(final Collection<Endorsement> endorseHWorker) {
 		this.endorseHWorker = endorseHWorker;
 	}
-	@ElementCollection
+
 	@OneToMany(mappedBy = "handyWorker")
 	public Collection<Endorsement> getReceiveEndorseFromHWorker() {
 		return this.receiveEndorseFromHWorker;
@@ -59,16 +58,16 @@ public class HandyWorker extends Actor {
 	public void setReceiveEndorseFromHWorker(final Collection<Endorsement> receiveEndorseFromHWorker) {
 		this.receiveEndorseFromHWorker = receiveEndorseFromHWorker;
 	}
-	@ElementCollection
+
 	@OneToMany(mappedBy = "handyWorker")
-	public Collection<Application> getApplicacion() {
-		return this.Applicacion;
+	public Collection<Application> getApplication() {
+		return this.application;
 	}
 
-	public void setApplicacion(final Collection<Application> applicacion) {
-		this.Applicacion = applicacion;
+	public void setApplication(final Collection<Application> application) {
+		this.application = application;
 	}
-	@ElementCollection
+
 	@OneToMany
 	public Collection<Curricula> getCurricula() {
 		return this.curricula;
@@ -77,7 +76,7 @@ public class HandyWorker extends Actor {
 	public void setCurricula(final Collection<Curricula> curricula) {
 		this.curricula = curricula;
 	}
-	@ElementCollection
+
 	@OneToMany
 	public Collection<Tutorial> getTutorial() {
 		return this.tutorial;

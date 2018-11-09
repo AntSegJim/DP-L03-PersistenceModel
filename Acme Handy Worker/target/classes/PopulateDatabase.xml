@@ -101,7 +101,7 @@
 		<property name="photo" value="https://www.instagram.com/p/BpxFMjlgfsC/" />
 		<property name="email" value="cristian@hotmail.com" />
 		<property name="phone" value="+34 620510520" />
-		<property name="adress" value="SEVILLA" />
+		<property name="address" value="SEVILLA" />
 		<property name="numberSocialProfiles" value="3" />
 		<property name="userAccount" ref="userAccount2" />
 		<property name="profileSocialNetwork">
@@ -354,12 +354,12 @@
 		<property name="pieceOfText"> <null /> </property>
 	</bean>
 	
-	<!--Beans para que den fallos -->
+	<!--Beans para que den fallos 
 	<bean id="section2" class="domain.Section">
 		<property name="number"> <null /></property>
 		<property name="title" value="Sección 2"></property>
 		<property name="pieceOfText" value=""></property>
-	</bean>
+	</bean>-->
 
 	
 
@@ -544,7 +544,7 @@
 		<property name="photo" value="https://www.instagram.com/p/BpxFMjlgfsC/" />
 		<property name="email" value="cristian@hotmail.com" />
 		<property name="phone" value="+34 620510520" />
-		<property name="adress" value="SEVILLA" />
+		<property name="address" value="SEVILLA" />
 		<property name="numberSocialProfiles" value="3" />
 
 
@@ -622,10 +622,10 @@
 
 	<!-- Application -->
 	<bean id="application1" class="domain.Application">
-		<property name="moment" value="02/06/2018" />
+		<property name="moment" value="02/06/2018 20:12" />
 		<property name="status" value="1" />
 		<property name="price" value="30" />
-
+		<property name="handyWorker" ref="handyWorker1"></property>
 		<property name="comments">
 			<list>
 				<value> Primer comentario de prueba</value>
@@ -633,34 +633,25 @@
 			</list>
 		</property>
 		<property name="fixUpTask" ref="fixUpTask1" />
-
-		<property name="phase">
+		<property name="creditCard" ref="creditCard1" />
+		<property name="phases">
 			<list>
 				<ref bean="phase1" />
 			</list>
 		</property>
-		<property name="creditCard" ref="creditCard1" />
-
 	</bean>
 
 	<!-- phase -->
 	<bean id="phase1" class="domain.Phase">
 		<property name="title" value="Titulo Ejemplo" />
 		<property name="description" value="Ejemplo de descripción" />
-		<property name="starMoment" value="02/06/2018 20:00" />
+		<property name="startMoment" value="02/06/2018 20:00" />
 		<property name="endMoment" value="02/06/2018 20:10" />
 	</bean>
 	
 	<!-- Customer -->
 	<bean id="customer1" class="domain.Customer">
 		<property name="score" value="10" />
-		<property name="fixUpTask">
-			<list>
-				<ref bean="fixUpTask1"/>
-				<ref bean="fixUpTask2"/>
-				<ref bean="fixUpTask3"/>
-			</list>
-		</property>
 		<property name="endorseCustomer">
 			<list>
 				<ref bean="endorsement1"/>
@@ -677,11 +668,6 @@
 	
 	<bean id="customer2" class="domain.Customer">
 		<property name="score" value="11" />
-		<property name="fixUpTask">
-			<list>
-				<ref bean="fixUpTask4"/>
-			</list>
-		</property>
 		<property name="endorseCustomer">
 			<list>
 				<ref bean="endorsement3"/>
@@ -700,21 +686,13 @@
 	<bean id="filter1" class="domain.Filter">
 		<property name="ticker" value="1234ABC" />
 		<property name="description" value="lo describo" />
-		<property name="adrres" value="pongo direccion" />
+		<property name="address" value="pongo direccion" />
 		<property name="startDate" value="01/02/2015 23:59" />
 		<property name="endDate" value="02/02/2015 23:59" />
 		<property name="lowPrice" value="12" />
 		<property name="highPrice" value="14" />
-		<property name="warranty">
-			<list>
-				<ref bean="warranty1"/>
-			</list>
-		</property>
-		<property name="category">
-			<list>
-				<ref bean="category1"/>
-			</list>
-		</property>
+		<property name="warranty" ref="warranty1" />
+		<property name="category" ref="soonCategory1" />
 	</bean>
 	
 	<!-- Finder -->
@@ -725,23 +703,19 @@
 				<ref bean="fixUpTask1"/>
 			</list>
 		</property>
-		<property name="filter">
-			<list>
-				<ref bean="filter1"/>
-			</list>
-		</property>
+		<property name="filter" ref="filter1"/>
 	</bean>
 	
 	<!-- FixUpTask -->
-	<bean id="fixUpTask1" class="domain.Filter">
+	<bean id="fixUpTask1" class="domain.FixUpTask">
 		<property name="ticker" value="1234ABCD" />
 		<property name="moment" value="01/02/2015 23:59" />
 		<property name="description" value="lo describo2" />
-		<property name="adrres" value="pongo direccion2" />
+		<property name="address" value="pongo direccion2" />
 		<property name="maximunPrice" value="12" />
 		<property name="periodTime" value="1" />
 		<property name="customer" ref="customer1" />
-		<property name="category" ref="category1" />
+		<property name="category" ref="soonCategory1" />
 		<property name="warranty" ref="warranty1" />
 		<property name="complaint">
 			<list>
@@ -770,9 +744,9 @@
 				<ref bean="endorsement1"/>
 			</list>
 		</property>
-		<property name="Application">
+		<property name="application">
 			<list>
-				<ref bean="aplication1"/>
+				<ref bean="application1"/>
 			</list>
 		</property>
 		<property name="curricula">
@@ -782,12 +756,45 @@
 		</property>
 		<property name="tutorial">
 			<list>
-				<ref bean="tutorial"/>
+				<ref bean="tutorial1"/>
 			</list>
 		</property>		
 	</bean>
 	<!-- Endorsement -->
 	<bean id="endorsement1" class="domain.Endorsement">
+		<property name="moment" value="12/12/2012 12:12" />
+		<property name="comments">
+			<list>
+				<value>Coment1</value>
+				<value>Coment2</value>
+			</list>
+		</property>	
+		<property name="handyWorker" ref="handyWorker1"/>	
+		<property name="customer" ref="customer1"/>	
+	</bean>
+	<bean id="endorsement2" class="domain.Endorsement">
+		<property name="moment" value="12/12/2012 12:12" />
+		<property name="comments">
+			<list>
+				<value>Coment1</value>
+				<value>Coment2</value>
+			</list>
+		</property>	
+		<property name="handyWorker" ref="handyWorker1"/>	
+		<property name="customer" ref="customer1"/>	
+	</bean>
+	<bean id="endorsement3" class="domain.Endorsement">
+		<property name="moment" value="12/12/2012 12:12" />
+		<property name="comments">
+			<list>
+				<value>Coment1</value>
+				<value>Coment2</value>
+			</list>
+		</property>	
+		<property name="handyWorker" ref="handyWorker1"/>	
+		<property name="customer" ref="customer1"/>	
+	</bean>
+	<bean id="endorsement4" class="domain.Endorsement">
 		<property name="moment" value="12/12/2012 12:12" />
 		<property name="comments">
 			<list>
@@ -804,21 +811,21 @@
 	<!-- Tutorial -->
 	<bean id="tutorial1" class="domain.Tutorial">
 		<property name="title" value="Titulo del primer tutorial"></property>
-		<property name="moment" value="05/06/2018 11:30:00"></property>
+		<property name="moment" value="05/06/2018 11:30"></property>
 		<property name="summary" value="Breve resumen del primer tutorial"></property>
-		<property name="pictures">
+		<property name="picture">
 			<list>
 				<ref bean="picture1"/>
 				<ref bean="picture2"/>
 			</list>
 		</property>
-		<property name="sections">
+		<property name="section">
 			<list>
 				<ref bean="section1"/>
 				<ref bean="section2"/>
 			</list>
 		</property>
-		<property name="sponsorships">
+		<property name="sponsorship">
 			<list>
 				<ref bean="sponsorship1"/>
 			</list>

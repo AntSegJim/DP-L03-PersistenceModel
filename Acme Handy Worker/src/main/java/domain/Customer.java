@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -14,8 +13,6 @@ import javax.persistence.OneToMany;
 public class Customer extends Actor {
 
 	private Integer					score;
-
-	private Collection<FixUpTask>	fixUpTask;
 
 	private Collection<Endorsement>	endorseCustomer;
 	private Collection<Endorsement>	receiveEndorseFromCustomer;
@@ -29,16 +26,7 @@ public class Customer extends Actor {
 	public void setScore(final Integer score) {
 		this.score = score;
 	}
-	@ElementCollection
-	@OneToMany
-	public Collection<FixUpTask> getFixUpTask() {
-		return this.fixUpTask;
-	}
 
-	public void setFixUpTask(final Collection<FixUpTask> fixUpTask) {
-		this.fixUpTask = fixUpTask;
-	}
-	@ElementCollection
 	@OneToMany(mappedBy = "customer")
 	public Collection<Endorsement> getEndorseCustomer() {
 		return this.endorseCustomer;
@@ -47,7 +35,7 @@ public class Customer extends Actor {
 	public void setEndorseCustomer(final Collection<Endorsement> endorseCustomer) {
 		this.endorseCustomer = endorseCustomer;
 	}
-	@ElementCollection
+
 	@OneToMany(mappedBy = "customer")
 	public Collection<Endorsement> getReceiveEndorseFromCustomer() {
 		return this.receiveEndorseFromCustomer;

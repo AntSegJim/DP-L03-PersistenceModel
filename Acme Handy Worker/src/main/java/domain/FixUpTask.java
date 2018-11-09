@@ -7,11 +7,12 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -20,7 +21,7 @@ public class FixUpTask extends DomainEntity {
 	private String					ticker;
 	private Date					moment;
 	private String					description;
-	private String					adress;
+	private String					address;
 	private Double					maximunPrice;
 	private Integer					periodTime;
 
@@ -33,7 +34,7 @@ public class FixUpTask extends DomainEntity {
 
 	//Getters and Setters
 
-	@Pattern(regexp = "(^[0-9]{6}[-][A-Z0-9] {6}$)")
+	//@Pattern(regexp = "(^[0-9]{6}[-][A-Z0-9] {6}$)")
 	@Column(unique = true)
 	public String getTicker() {
 		return this.ticker;
@@ -44,6 +45,7 @@ public class FixUpTask extends DomainEntity {
 	}
 
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -60,12 +62,12 @@ public class FixUpTask extends DomainEntity {
 		this.description = description;
 	}
 
-	public String getAdress() {
-		return this.adress;
+	public String getAddress() {
+		return this.address;
 	}
 
-	public void setAdress(final String adress) {
-		this.adress = adress;
+	public void setAddress(final String address) {
+		this.address = address;
 	}
 
 	public Double getMaximunPrice() {
@@ -84,6 +86,7 @@ public class FixUpTask extends DomainEntity {
 		this.periodTime = periodTime;
 	}
 
+	@ManyToOne(optional = false)
 	public Customer getCustomer() {
 		return this.customer;
 	}
@@ -91,7 +94,7 @@ public class FixUpTask extends DomainEntity {
 	public void setCustomer(final Customer customer) {
 		this.customer = customer;
 	}
-
+	@ManyToOne(optional = false)
 	public Category getCategory() {
 		return this.category;
 	}
@@ -99,7 +102,7 @@ public class FixUpTask extends DomainEntity {
 	public void setCategory(final Category category) {
 		this.category = category;
 	}
-
+	@ManyToOne(optional = false)
 	public Warranty getWarranty() {
 		return this.warranty;
 	}
@@ -107,7 +110,7 @@ public class FixUpTask extends DomainEntity {
 	public void setWarranty(final Warranty warranty) {
 		this.warranty = warranty;
 	}
-	@ElementCollection
+
 	@OneToMany
 	public Collection<Complaint> getComplaint() {
 		return this.complaint;
@@ -117,7 +120,6 @@ public class FixUpTask extends DomainEntity {
 		this.complaint = complaint;
 	}
 
-	@ElementCollection
 	@OneToMany(mappedBy = "fixUpTask")
 	public Collection<Application> getApplication() {
 		return this.application;
@@ -126,5 +128,4 @@ public class FixUpTask extends DomainEntity {
 	public void setApplication(final Collection<Application> application) {
 		this.application = application;
 	}
-
 }

@@ -9,7 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.Pattern;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -25,7 +24,7 @@ public class Curricula extends DomainEntity {
 
 	//@Pattern(regexp = "^[0-9]{6}\\-[A-Z 0-9]{6}$")
 	@Column(unique = true)
-	@Pattern(regexp = "^[0-9]{6}$")
+	//@Pattern(regexp = "^[0-9]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}
