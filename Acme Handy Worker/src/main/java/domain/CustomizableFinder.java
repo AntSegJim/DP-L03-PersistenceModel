@@ -1,10 +1,13 @@
 
 package domain;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotBlank;
-
+@Entity
+@Access(AccessType.PROPERTY)
 public class CustomizableFinder extends DomainEntity {
 
 	private Integer	resultNumber;
@@ -14,7 +17,6 @@ public class CustomizableFinder extends DomainEntity {
 	//Getters and Setters
 
 	@NotNull
-	@NotBlank
 	public Integer getResultNumber() {
 		return this.resultNumber;
 	}
@@ -24,7 +26,6 @@ public class CustomizableFinder extends DomainEntity {
 	}
 
 	@NotNull
-	@NotBlank
 	public Integer getTimeCache() {
 		return this.timeCache;
 	}

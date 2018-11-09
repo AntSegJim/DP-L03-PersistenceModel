@@ -584,7 +584,58 @@
 	
 		</bean>
 		
+	<!-- CustomizableFinder -->
+		
+	<bean id="customizableFinder1" class="domain.CustomizableFinder" >
 	
+		<property name="resultNumber" value="30" />
+		<property name="timeCache" value="20" />
+		
 	
+		</bean>
+			
+				<!-- CustomizableSystem -->
+		
+	<bean id="customizableSystem1" class="domain.CustomizableSystem" >
 	
+		<property name="name" value="Ejemplo" />
+		<property name="banner" value="https://www.banner.es" />
+			<property name="messageWelcomePage" value="Mensaje  de bienvenido" />
+			<property name="VATPercentage" value="50" />
+			<property name="telephoneCode" value="jhhdgiuuskhhgwdkhg" />
+		
+	
+		</bean>
+	
+				<!-- Application -->
+			<bean id="application1" class="domain.Application">
+		<property name="moment" value="02/06/2018" />
+		<property name="status" value="1" />
+		<property name="price" value="30" />
+		
+		<property name="comments" >
+		<list>
+		<value> Primer comentario de prueba</value>
+		<value> Segundo comentario de prueba</value>
+		</list>
+		</property>
+	     <property name="fixUpTask" ref="fixUpTask1"/>
+	
+	     <property name="phase" >
+		<list>
+	<ref bean="phase1"/>
+		</list>
+		</property>
+			</property>
+	     <property name="creditCard" ref="creditCard1"/>
+	
+</bean>
+
+		<!-- phase -->
+			<bean id="phase1" class="domain.Phase">
+		<property name="title" value="Titulo Ejemplo" />
+		<property name="description" value="Ejemplo de descripción" />
+		<property name="starMoment" value="02/06/2018 20:00" />
+		<property name="endMoment" value="02/06/2018 20:10"/>
+		</bean>
 </beans>
