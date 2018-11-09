@@ -4,12 +4,20 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-// @Entity
-// @Access(AccessType.PROPERTY)
+@Entity
+@Access(AccessType.PROPERTY)
 public class Tutorial extends DomainEntity {
 
 	private String					title;
@@ -17,7 +25,7 @@ public class Tutorial extends DomainEntity {
 	private String					summary;
 	private Collection<Picture>		pictures;
 	private Collection<Section>		sections;
-	private Collection<Sponsorship>	sponsorchips;
+	private Collection<Sponsorship>	sponsorships;
 
 
 	//Getters
@@ -27,7 +35,7 @@ public class Tutorial extends DomainEntity {
 		return this.title;
 	}
 	@Past
-	//@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -36,19 +44,19 @@ public class Tutorial extends DomainEntity {
 		return this.summary;
 	}
 
-	//@ManyToMany
+	@ManyToMany
 	public Collection<Picture> getPictures() {
 		return this.pictures;
 	}
 
-	//@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<Section> getSection() {
 		return this.sections;
 	}
 
-	//@ManyToMany
+	@ManyToMany
 	public Collection<Sponsorship> getSponsorship() {
-		return this.sponsorchips;
+		return this.sponsorships;
 	}
 
 	//Setters
@@ -68,7 +76,7 @@ public class Tutorial extends DomainEntity {
 		this.sections = sec;
 	}
 	public void setSponsorships(final Collection<Sponsorship> spo) {
-		this.sponsorchips = spo;
+		this.sponsorships = spo;
 	}
 
 }

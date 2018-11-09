@@ -26,8 +26,9 @@ public class MiscellaneousRecord extends DomainEntity {
 	public void setTitle(final String title) {
 		this.title = title;
 	}
-	@URL
+
 	//Opcional (HAY QUE MIRARLO)
+	@URL
 	public String getLink() {
 		return this.link;
 	}
@@ -35,8 +36,8 @@ public class MiscellaneousRecord extends DomainEntity {
 	public void setLink(final String link) {
 		this.link = link;
 	}
-	//Opcional
 
+	//Opcional
 	@ElementCollection
 	public Collection<String> getComments() {
 		return this.comments;

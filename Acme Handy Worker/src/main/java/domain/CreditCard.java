@@ -39,7 +39,7 @@ public class CreditCard extends DomainEntity {
 	public void setBrandName(final String brandName) {
 		this.brandName = brandName;
 	}
-	@NotBlank
+
 	@NotNull
 	public Integer getNumber() {
 		return this.number;
@@ -48,7 +48,7 @@ public class CreditCard extends DomainEntity {
 	public void setNumber(final Integer number) {
 		this.number = number;
 	}
-	@NotBlank
+
 	@NotNull
 	public Integer getExpirationMonth() {
 		return this.expirationMonth;
@@ -57,7 +57,7 @@ public class CreditCard extends DomainEntity {
 	public void setExpirationMonth(final Integer expirationMonth) {
 		this.expirationMonth = expirationMonth;
 	}
-	@NotBlank
+
 	@NotNull
 	public Integer getExpirationYear() {
 		return this.expirationYear;
@@ -66,7 +66,7 @@ public class CreditCard extends DomainEntity {
 	public void setExpirationYear(final Integer expirationYear) {
 		this.expirationYear = expirationYear;
 	}
-	@NotBlank
+
 	@NotNull
 	@Range(min = 100, max = 999)
 	public Integer getCW() {

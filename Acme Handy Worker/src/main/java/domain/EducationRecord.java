@@ -45,7 +45,6 @@ public class EducationRecord extends DomainEntity {
 
 	//Opcional
 	@Past
-	//HABRIA QUE MIRAR SI ES OPCIONAL O NO
 	@Temporal(TemporalType.DATE)
 	public Date getEndDate() {
 		return this.endDate;
@@ -62,6 +61,7 @@ public class EducationRecord extends DomainEntity {
 	public void setInstitution(final String institution) {
 		this.institution = institution;
 	}
+
 	@URL
 	//Opcional
 	public String getLink() {
@@ -71,6 +71,7 @@ public class EducationRecord extends DomainEntity {
 	public void setLink(final String link) {
 		this.link = link;
 	}
+
 	//Opcional
 	@ElementCollection
 	public Collection<String> getComment() {

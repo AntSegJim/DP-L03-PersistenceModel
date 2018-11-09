@@ -322,6 +322,14 @@
 	<bean id="picture3" class="domain.Picture">
 		<property name="picture" value="https://goo.gl/images/dLjah6"></property>
 	</bean>
+	
+	<!-- Benas para que den errores -->
+	<bean id="picture4" class="domain.Picture">
+		<property name="picture" value=""></property>
+	</bean>
+	<bean id="picture5" class="domain.Picture">
+		<property name="picture"> <null /></property>
+	</bean>
 
 
 	<!-- Section -->
@@ -330,40 +338,30 @@
 		<property name="title" value="Sección 1"></property>
 		<property name="pieceOfText" value="Texto de prueba 1"></property>
 	</bean>
-
 	<bean id="section2" class="domain.Section">
 		<property name="number" value="2"></property>
 		<property name="title" value="Sección 2"></property>
 		<property name="pieceOfText" value="texto de prueba 2"></property>
 	</bean>
-
-
-	<bean id="tutorial1" class="domain.Tutorial">
-		<property name="title" value="Aprender java"></property>
-		<property name="moment" value="05/06/2018"></property>
-		<property name="summary" value="Aprender java es muy facil con miguel toro"></property>
-		<property name="pictures">
-			<list>
-				<ref bean="picture1" />
-				<ref bean="picture2" />
-			</list>
-
-		</property>
-		<property name="sections">
-			<list>
-				<ref bean="section1" />
-				<ref bean="section2" />
-			</list>
-		</property>
-		<property name="sponsorships">
-			<list>
-				<ref bean="sponsorship1" />
-				<ref bean="sponsorship2" />
-			</list>
-		</property>
+	<bean id="section3" class="domain.Section">
+		<property name="number" value="3"></property>
+		<property name="title" value="Sección 3"></property>
+		<property name="pieceOfText" value=""></property>
+	</bean>
+	<bean id="section4" class="domain.Section">
+		<property name="number" value="4"></property>
+		<property name="title" value="Sección 4"></property>
+		<property name="pieceOfText"> <null /> </property>
+	</bean>
+	
+	<!--Beans para que den fallos -->
+	<bean id="section2" class="domain.Section">
+		<property name="number"> <null /></property>
+		<property name="title" value="Sección 2"></property>
+		<property name="pieceOfText" value=""></property>
 	</bean>
 
-
+	
 
 
 	<!-- PersonalRecord -->
@@ -799,6 +797,32 @@
 		</property>	
 		<property name="handyWorker" ref="handyWorker1"/>	
 		<property name="customer" ref="customer1"/>	
+	</bean>
+	
+	
+	
+	<!-- Tutorial -->
+	<bean id="tutorial1" class="domain.Tutorial">
+		<property name="title" value="Titulo del primer tutorial"></property>
+		<property name="moment" value="05/06/2018 11:30:00"></property>
+		<property name="summary" value="Breve resumen del primer tutorial"></property>
+		<property name="pictures">
+			<list>
+				<ref bean="picture1"/>
+				<ref bean="picture2"/>
+			</list>
+		</property>
+		<property name="sections">
+			<list>
+				<ref bean="section1"/>
+				<ref bean="section2"/>
+			</list>
+		</property>
+		<property name="sponsorships">
+			<list>
+				<ref bean="sponsorship1"/>
+			</list>
+		</property>
 	</bean>
 	
 </beans>

@@ -61,6 +61,7 @@ public class ProfessionalRecord extends DomainEntity {
 	public void setRole(final String role) {
 		this.role = role;
 	}
+
 	@URL
 	//Opcional
 	public String getLink() {
@@ -70,8 +71,8 @@ public class ProfessionalRecord extends DomainEntity {
 	public void setLink(final String link) {
 		this.link = link;
 	}
-	//Opcional
 
+	//Opcional
 	@ElementCollection
 	public Collection<String> getComments() {
 		return this.comments;

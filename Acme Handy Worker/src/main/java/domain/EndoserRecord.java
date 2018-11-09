@@ -53,6 +53,7 @@ public class EndoserRecord extends DomainEntity {
 	public void setPhoneNumber(final String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	@URL
 	//Opcional
 	public String getLinkedln() {
@@ -66,8 +67,6 @@ public class EndoserRecord extends DomainEntity {
 	@ElementCollection
 	public Collection<String> getComments() {
 		return this.comments;
-		//return new ArrayList<>(this.comments);
-
 	}
 
 	public void setComments(final Collection<String> comments) {
