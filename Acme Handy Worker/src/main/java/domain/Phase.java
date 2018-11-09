@@ -3,6 +3,8 @@ package domain;
 
 import java.util.Date;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -33,6 +35,7 @@ public class Phase extends DomainEntity {
 
 	@Past
 	@NotBlank
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getStartMoment() {
 		return this.startMoment;
 	}
@@ -40,7 +43,7 @@ public class Phase extends DomainEntity {
 	public void setStartMoment(final Date startMoment) {
 		this.startMoment = startMoment;
 	}
-
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getEndMoment() {
 		return this.endMoment;
 	}

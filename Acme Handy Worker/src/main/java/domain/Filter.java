@@ -6,6 +6,8 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Pattern;
@@ -28,6 +30,7 @@ public class Filter extends DomainEntity {
 
 	//Getters and Setters
 	@Pattern(regexp = "(^[0-9]{6}[-][A-Z0-9] {6}$)")
+	@Column(unique = true)
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -83,6 +86,7 @@ public class Filter extends DomainEntity {
 	public void setHighPrice(final Double highPrice) {
 		this.highPrice = highPrice;
 	}
+	@ElementCollection
 	@ManyToOne
 	public Collection<Warranty> getWarranty() {
 		return this.warranty;
@@ -91,6 +95,7 @@ public class Filter extends DomainEntity {
 	public void setWarranty(final Collection<Warranty> warranty) {
 		this.warranty = warranty;
 	}
+	@ElementCollection
 	@ManyToOne
 	public Collection<Category> getCategory() {
 		return this.category;

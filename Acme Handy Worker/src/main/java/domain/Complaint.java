@@ -4,19 +4,27 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class Complaint extends DomainEntity {
 
 	private String				ticker;			// : String{Pattern(^[0-9]{6}[-][A-Z0-9] {6}$)}
 	private Date				moment;
 	private String				description;
 	private Integer				numberAttachments;
-	private Collection<Report>	Report;
+	private Collection<Report>	report;
 
 
-	@Pattern(regexp = "^[0-9]{6}[-][A-Z0-9] {6}$)")
+	//	@Pattern(regexp = "^[0-9]{6}[-][A-Z0-9] {6}$)")
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -24,7 +32,7 @@ public class Complaint extends DomainEntity {
 	public void setTicker(final String ticker) {
 		this.ticker = ticker;
 	}
-
+	@Temporal(TemporalType.DATE)
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -48,13 +56,14 @@ public class Complaint extends DomainEntity {
 	public void setNumberAttachments(final Integer numberAttachments) {
 		this.numberAttachments = numberAttachments;
 	}
-
+	@ElementCollection
+	@OneToMany
 	public Collection<Report> getReport() {
-		return this.Report;
+		return this.report;
 	}
 	@NotNull
 	public void setReport(final Collection<Report> report) {
-		this.Report = report;
+		this.report = report;
 	}
 
 }

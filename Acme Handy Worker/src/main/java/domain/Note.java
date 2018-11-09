@@ -4,16 +4,25 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.hibernate.validator.constraints.NotBlank;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class Note extends DomainEntity {
 
 	private Date				moment;			//: Date {NotBlank}
 	private String				comment;			// : String {NotBlank}
-	private Collection<String>	optionalComments;	// Opcional
+	private Collection<String>	optionalComments;	// Opcional  //Cmabiar 
 
 
-	@NotBlank
+	@Temporal(TemporalType.DATE)
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -30,7 +39,7 @@ public class Note extends DomainEntity {
 		this.comment = comment;
 	}
 	//Opcional
-
+	@ElementCollection
 	public Collection<String> getOptionalComments() {
 		return this.optionalComments;
 	}

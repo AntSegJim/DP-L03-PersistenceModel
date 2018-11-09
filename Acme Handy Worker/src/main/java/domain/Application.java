@@ -4,10 +4,20 @@ package domain;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Range;
 
+@Entity
+@Access(AccessType.PROPERTY)
 public class Application extends DomainEntity {
 
 	private Date				moment;
@@ -27,6 +37,7 @@ public class Application extends DomainEntity {
 	//Getters and Setters
 
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -50,7 +61,7 @@ public class Application extends DomainEntity {
 	public void setPrice(final Double price) {
 		this.price = price;
 	}
-
+	@ElementCollection
 	public Collection<String> getComments() {
 		return this.comments;
 	}
@@ -58,7 +69,7 @@ public class Application extends DomainEntity {
 	public void setComments(final Collection<String> comments) {
 		this.comments = comments;
 	}
-
+	@ManyToOne(optional = false)
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}
@@ -66,7 +77,7 @@ public class Application extends DomainEntity {
 	public void setHandyWorker(final HandyWorker handyWorker) {
 		this.handyWorker = handyWorker;
 	}
-
+	@ManyToOne(optional = false)
 	public CreditCard getCreditCard() {
 		return this.creditCard;
 	}
@@ -74,7 +85,7 @@ public class Application extends DomainEntity {
 	public void setCreditCard(final CreditCard creditCard) {
 		this.creditCard = creditCard;
 	}
-
+	@ManyToOne(optional = false)
 	public FixUpTask getFixUpTask() {
 		return this.fixUpTask;
 	}
@@ -82,7 +93,8 @@ public class Application extends DomainEntity {
 	public void setFixUpTask(final FixUpTask fixUpTask) {
 		this.fixUpTask = fixUpTask;
 	}
-
+	@ElementCollection
+	@OneToMany
 	public Collection<Phase> getPhases() {
 		return this.phases;
 	}
