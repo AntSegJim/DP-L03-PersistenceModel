@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -55,6 +56,7 @@ public class Complaint extends DomainEntity {
 	public void setNumberAttachments(final Integer numberAttachments) {
 		this.numberAttachments = numberAttachments;
 	}
+	@ElementCollection
 	@OneToMany
 	public Collection<Report> getReport() {
 		return this.report;

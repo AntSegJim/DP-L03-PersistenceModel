@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
@@ -106,6 +107,7 @@ public class FixUpTask extends DomainEntity {
 	public void setWarranty(final Warranty warranty) {
 		this.warranty = warranty;
 	}
+	@ElementCollection
 	@OneToMany
 	public Collection<Complaint> getComplaint() {
 		return this.complaint;
@@ -115,6 +117,7 @@ public class FixUpTask extends DomainEntity {
 		this.complaint = complaint;
 	}
 
+	@ElementCollection
 	@OneToMany(mappedBy = "fixUpTask")
 	public Collection<Application> getApplication() {
 		return this.application;
