@@ -323,13 +323,13 @@
 		<property name="picture" value="https://goo.gl/images/dLjah6"></property>
 	</bean>
 	
-	<!-- Benas para que den errores -->
+	<!-- Benas para que den errores 
 	<bean id="picture4" class="domain.Picture">
 		<property name="picture" value=""></property>
 	</bean>
 	<bean id="picture5" class="domain.Picture">
 		<property name="picture"> <null /></property>
-	</bean>
+	</bean>-->
 
 
 	<!-- Section -->
@@ -346,12 +346,12 @@
 	<bean id="section3" class="domain.Section">
 		<property name="number" value="3"></property>
 		<property name="title" value="Sección 3"></property>
-		<property name="pieceOfText" value=""></property>
+		<property name="pieceOfText" value="Vacio"></property>
 	</bean>
 	<bean id="section4" class="domain.Section">
 		<property name="number" value="4"></property>
 		<property name="title" value="Sección 4"></property>
-		<property name="pieceOfText"> <null /> </property>
+		<property name="pieceOfText" value="null"></property>
 	</bean>
 	
 	<!--Beans para que den fallos 
@@ -651,6 +651,8 @@
 	
 	<!-- Customer -->
 	<bean id="customer1" class="domain.Customer">
+		<property name="name" value="Anton"></property>
+		<property name="surname" value="Seg"></property>
 		<property name="score" value="10" />
 		<property name="endorseCustomer">
 			<list>
@@ -667,6 +669,8 @@
 	</bean>
 	
 	<bean id="customer2" class="domain.Customer">
+		<property name="name" value="Anton"></property>
+		<property name="surname" value="Seg"></property>
 		<property name="score" value="11" />
 		<property name="endorseCustomer">
 			<list>
@@ -732,6 +736,8 @@
 	
 	<!-- HandyWorker -->
 	<bean id="handyWorker1" class="domain.HandyWorker">
+		<property name="name" value="Anton"></property>
+		<property name="surname" value="Seg"></property>
 		<property name="makeHandyWorker" value="HandyWorker1" />
 		<property name="score" value="1" />
 		<property name="endorseHWorker">

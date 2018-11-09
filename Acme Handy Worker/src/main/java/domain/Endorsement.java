@@ -9,9 +9,9 @@ import javax.persistence.AccessType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
-
-import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -23,8 +23,8 @@ public class Endorsement extends DomainEntity {
 	private Customer			customer;
 
 
-	@NotBlank
 	@Past
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
 		return this.moment;
 	}
