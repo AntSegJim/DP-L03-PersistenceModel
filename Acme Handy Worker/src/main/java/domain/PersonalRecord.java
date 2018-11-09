@@ -30,7 +30,6 @@ public class PersonalRecord extends DomainEntity {
 	}
 
 	@URL
-	//CAMBIO-> TIENE QUE SE NOTBLANK
 	public String getPhoto() {
 		return this.photo;
 	}
@@ -55,7 +54,6 @@ public class PersonalRecord extends DomainEntity {
 
 	//"^(\+[1-9]{1}|\+[1-9]{1}+[0-9]{1}|\+[1-9]{1}+[0-9]{1}+[0-9]{1})$"
 	@Pattern(regexp = "^\\+[1-9][0-9]{0,2}\\ \\([1-9][0-9]{0,2}\\)\\ [0-9]{4,}$|^\\+[1-9][0-9]{0,2}\\ [0-9]{4,}$|^[0-9]{4,}$ ")
-	//CAMBIO->TIENE QUE SER NOTBLANK
 	public String getPhone() {
 		return this.phone;
 	}

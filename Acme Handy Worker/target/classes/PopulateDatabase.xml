@@ -385,12 +385,8 @@
 	<!-- ProfessionalRecord -->
 	<bean id="professionalRecord1" class="domain.ProfessionalRecord">
 		<property name="nameCompany" value="Amazon"></property>
-		<property name="startDate">
-			<null />
-		</property>
-		<property name="endDate">
-			<null />
-		</property>
+		<property name="startDate" value="05/06/2017"></property>
+		<property name="endDate"><null /></property>
 		<property name="role" value="Ingeniero"></property>
 		<property name="link" value=""></property>
 		<property name="comments">
@@ -400,7 +396,6 @@
 			</list>
 		</property>
 	</bean>
-
 	<bean id="professionalRecord2" class="domain.ProfessionalRecord">
 		<property name="nameCompany" value="Aliexpress"></property>
 		<property name="startDate" value="05/06/2017"></property>
@@ -409,11 +404,24 @@
 		<property name="link" value=""></property>
 		<property name="comments">
 			<list>
-				<value>Correcto</value>
-				<value>Erroneo</value>
 			</list>
 		</property>
 	</bean>
+	
+	<!-- Bean que dan error -->
+	<!--
+	<bean id="professionalRecord3" class="domain.ProfessionalRecord">
+		<property name="nameCompany" value="Aliexpress"></property>
+		<property name="startDate"> <null/> </property>
+		<property name="endDate"> <null/> </property>
+		<property name="role" value="Analista"></property>
+		<property name="link" value=""></property>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+	</bean>
+	-->
 
 
 	<!-- MiscellaneousRecord -->
@@ -427,7 +435,6 @@
 			</list>
 		</property>
 	</bean>
-
 	<bean id="miscellaneousRecord2" class="domain.MiscellaneousRecord">
 		<property name="title" value="titulo2"></property>
 		<property name="link" value=""></property>
@@ -435,6 +442,14 @@
 			<list>
 				<value>Hola cristian</value>
 				<value>Adios cristian</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="miscellaneousRecord3" class="domain.MiscellaneousRecord">
+		<property name="title" value="titulo3"></property>
+		<property name="link" value=""></property>
+		<property name="comments">
+			<list>
 			</list>
 		</property>
 	</bean>
@@ -454,7 +469,6 @@
 			</list>
 		</property>
 	</bean>
-
 	<bean id="endoserRecord2" class="domain.EndoserRecord">
 		<property name="name" value="titulo2"></property>
 		<property name="email" value="email2@gmail.com"></property>
@@ -464,6 +478,16 @@
 			<list>
 				<value>Hola raúl</value>
 				<value>Adios raúl</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="endoserRecord3" class="domain.EndoserRecord">
+		<property name="name" value="titulo3"></property>
+		<property name="email" value="email3@gmail.com"></property>
+		<property name="phoneNumber" value="+34 616161619"></property>
+		<property name="linkedln" value=""></property>
+		<property name="comments">
+			<list>
 			</list>
 		</property>
 	</bean>
@@ -483,11 +507,10 @@
 			</list>
 		</property>
 	</bean>
-
 	<bean id="educationRecord2" class="domain.EducationRecord">
 		<property name="titleDiploma" value="titulo2"></property>
 		<property name="startDate" value="01/02/2011"></property>
-		<property name="endDate" value="01/02/2014"></property>
+		<property name="endDate"> <null/> </property>
 		<property name="institution" value="UPO"></property>
 		<property name="link" value=""></property>
 		<property name="comment">
@@ -497,7 +520,34 @@
 			</list>
 		</property>
 	</bean>
-
+	<bean id="educationRecord3" class="domain.EducationRecord">
+		<property name="titleDiploma" value="titulo3"></property>
+		<property name="startDate" value="01/02/2013"></property>
+		<property name="endDate"> <null/> </property>
+		<property name="institution" value="Carmen laffon"></property>
+		<property name="link" value=""></property>
+		<property name="comment">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Bean para que de fallo -->
+	<!--
+	<bean id="educationRecord4" class="domain.EducationRecord">
+		<property name="titleDiploma" value="titulo2"></property>
+		<property name="startDate"> <null/> </property>
+		<property name="endDate"> <null/> </property>
+		<property name="institution" value="UPO-SE"></property>
+		<property name="link" value=""></property>
+		<property name="comment">
+			<list>
+				<value>Hola</value>
+				<value>Adios</value>
+			</list>
+		</property>
+	</bean>
+	-->
 
 
 	<!-- Curricula -->
@@ -837,5 +887,4 @@
 			</list>
 		</property>
 	</bean>
-	
 </beans>
