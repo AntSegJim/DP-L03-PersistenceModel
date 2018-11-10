@@ -35,7 +35,7 @@ public class Message extends DomainEntity {
 
 	@NotNull
 	@Past
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
 		return this.moment;
 	}

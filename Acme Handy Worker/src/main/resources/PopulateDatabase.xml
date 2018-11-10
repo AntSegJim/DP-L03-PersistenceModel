@@ -92,6 +92,12 @@
 		<property name="linkProfile" value="https://es-es.facebook.com/leomessi/" />
 	</bean>	
 	
+	<bean id="profileSocialNetwork3" class="domain.ProfileSocialNetwork">
+		<property name="nickName" value="Antonio" />
+		<property name="nameSocialNetwork" value="facebook" />
+		<property name="linkProfile" value="https://es-la.facebook.com/ArthurPBS/" />
+	</bean>	
+	
 	<!-- Actor -->
 	
 	<bean id="actor1" class="domain.Actor">
@@ -107,12 +113,55 @@
 		<property name="profileSocialNetwork">
 			<list>
 				<ref bean="profileSocialNetwork1" />
-				<ref bean="profileSocialNetwork2" />
 			</list>
 		</property>
 		<property name="messageBox">
 			<list>
 				<ref bean="messageBox1" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="actor2" class="domain.Actor">
+		<property name="name" value="Arthur" />
+		<property name="middleName" value="Centrocampista del F.C.Barcelona" />
+		<property name="surname" value="Melo" />
+		<property name="photo" value="https://www.instagram.com/p/BpK6fX7HDmq/" />
+		<property name="email" value="arthur@hotmail.com" />
+		<property name="phone" value="+101 625610534" />
+		<property name="address" value="BARCELONA" />
+		<property name="numberSocialProfiles" value="1" />
+		<property name="userAccount" ref="userAccount1" />
+		<property name="profileSocialNetwork">
+			<list>
+				<ref bean="profileSocialNetwork2" />
+			</list>
+		</property>
+		<property name="messageBox">
+			<list>
+				<ref bean="messageBox2" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="actor3" class="domain.Actor">
+		<property name="name" value="Antonio" />
+		<property name="middleName" value="" />
+		<property name="surname" value="Segura" />
+		<property name="photo" value="https://www.instagram.com/p/BpK6fX7HDmq/" />
+		<property name="email" value="antonio@hotmail.com" />
+		<property name="phone" value="+1 (125) 625610534" />
+		<property name="address" value="ARAHAL" />
+		<property name="numberSocialProfiles" value="1" />
+		<property name="userAccount" ref="userAccount3" />
+		<property name="profileSocialNetwork">
+			<list>
+				<ref bean="profileSocialNetwork3" />
+			</list>
+		</property>
+		<property name="messageBox">
+			<list>
+				<ref bean="messageBox3" />
 			</list>
 		</property>
 	</bean>
@@ -148,8 +197,8 @@
 		
 	<!-- Message -->	
 	<bean id="message1" class="domain.Message">
-		<property name="moment" value="05/06/2018" />
-		<property name="subject" value="Correo" />
+		<property name="moment" value="05/06/2018 12:34" />
+		<property name="subject" value="Subject1" />
 		<property name="body" value="Este es un mensaje que estoy escribiendo para popular la base de datos" />
 		<property name="priority" value="1" />
 		<property name="tag" value="tag" />
@@ -161,6 +210,22 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="message2" class="domain.Message">
+		<property name="moment" value="05/08/2018 16:34" />
+		<property name="subject" value="Subject2" />
+		<property name="body" value="Es mi cumpleaños" />
+		<property name="priority" value="2" />
+		<property name="tag" value="tag" />
+		<property name="sender" ref="actor2" />
+		<property name="receiver" ref="actor3" />
+		<property name="messageBox">
+			<list>
+				<ref bean="messageBox3" />
+			</list>
+		</property>
+	</bean>
+	
 	
 	<!-- Word -->	
 	<bean id="word1" class="domain.Word">
