@@ -11,6 +11,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
@@ -113,7 +114,7 @@ public class Actor extends DomainEntity {
 	public void setNumberSocialProfiles(final Integer numberSocialProfiles) {
 		this.numberSocialProfiles = numberSocialProfiles;
 	}
-
+	@Valid
 	@OneToOne(cascade = CascadeType.ALL)
 	public UserAccount getUserAccount() {
 		return this.userAccount;
@@ -122,7 +123,7 @@ public class Actor extends DomainEntity {
 	public void setUserAccount(final UserAccount userAccount) {
 		this.userAccount = userAccount;
 	}
-
+	@Valid
 	@OneToMany
 	public Collection<ProfileSocialNetwork> getProfileSocialNetwork() {
 		return this.profileSocialNetwork;
@@ -131,7 +132,7 @@ public class Actor extends DomainEntity {
 	public void setProfileSocialNetwork(final Collection<ProfileSocialNetwork> profileSocialNetwork) {
 		this.profileSocialNetwork = profileSocialNetwork;
 	}
-
+	@Valid
 	@OneToMany
 	public Collection<MessageBox> getMessageBox() {
 		return this.messageBox;

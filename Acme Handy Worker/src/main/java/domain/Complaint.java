@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -33,6 +34,7 @@ public class Complaint extends DomainEntity {
 	public void setTicker(final String ticker) {
 		this.ticker = ticker;
 	}
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	public Date getMoment() {
 		return this.moment;
@@ -57,12 +59,12 @@ public class Complaint extends DomainEntity {
 	public void setNumberAttachments(final Integer numberAttachments) {
 		this.numberAttachments = numberAttachments;
 	}
-
+	@Valid
 	@OneToMany
 	public Collection<Report> getReport() {
 		return this.report;
 	}
-	@NotNull
+
 	public void setReport(final Collection<Report> report) {
 		this.report = report;
 	}

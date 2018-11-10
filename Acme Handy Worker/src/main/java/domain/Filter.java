@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -53,7 +55,7 @@ public class Filter extends DomainEntity {
 	public void setAddress(final String address) {
 		this.address = address;
 	}
-
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getStartDate() {
 		return this.startDate;
@@ -87,7 +89,7 @@ public class Filter extends DomainEntity {
 	public void setHighPrice(final Double highPrice) {
 		this.highPrice = highPrice;
 	}
-
+	@Valid
 	@ManyToOne
 	public Warranty getWarranty() {
 		return this.warranty;
@@ -96,7 +98,7 @@ public class Filter extends DomainEntity {
 	public void setWarranty(final Warranty warranty) {
 		this.warranty = warranty;
 	}
-
+	@Valid
 	@ManyToOne
 	public Category getCategory() {
 		return this.category;

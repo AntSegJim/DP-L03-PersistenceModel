@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -23,6 +25,7 @@ public class Finder extends DomainEntity {
 	private Filter					filter;
 
 
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
 		return this.moment;
@@ -31,7 +34,7 @@ public class Finder extends DomainEntity {
 	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}
-
+	@Valid
 	@ManyToMany
 	public Collection<FixUpTask> getFixUpTask() {
 		return this.fixUpTask;
@@ -40,7 +43,7 @@ public class Finder extends DomainEntity {
 	public void setFixUpTask(final Collection<FixUpTask> fixUpTask) {
 		this.fixUpTask = fixUpTask;
 	}
-
+	@Valid
 	@ManyToOne
 	public Filter getFilter() {
 		return this.filter;

@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Range;
@@ -31,6 +33,7 @@ public class Message extends DomainEntity {
 	private Collection<MessageBox>	messageBox;
 
 
+	@NotNull
 	@Past
 	@Temporal(TemporalType.DATE)
 	public Date getMoment() {
@@ -74,7 +77,7 @@ public class Message extends DomainEntity {
 	public void setTag(final String tag) {
 		this.tag = tag;
 	}
-
+	@Valid
 	@OneToOne(optional = false)
 	public Actor getSender() {
 		return this.sender;
@@ -83,7 +86,7 @@ public class Message extends DomainEntity {
 	public void setSender(final Actor sender) {
 		this.sender = sender;
 	}
-
+	@Valid
 	@OneToOne(optional = false)
 	public Actor getReceiver() {
 		return this.receiver;
@@ -92,7 +95,7 @@ public class Message extends DomainEntity {
 	public void setReceiver(final Actor receiver) {
 		this.receiver = receiver;
 	}
-
+	@Valid
 	@ManyToMany
 	public Collection<MessageBox> getMessageBox() {
 		return this.messageBox;

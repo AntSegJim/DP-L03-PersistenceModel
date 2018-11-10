@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -25,6 +27,7 @@ public class Report extends DomainEntity {
 	private Collection<Attachment>	attachment;
 
 
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	public Date getMoment() {
 		return this.moment;
@@ -49,6 +52,7 @@ public class Report extends DomainEntity {
 	public void setPublished(final Integer published) {
 		this.published = published;
 	}
+	@Valid
 	@OneToMany
 	public Collection<Note> getNote() {
 		return this.note;
@@ -57,6 +61,7 @@ public class Report extends DomainEntity {
 	public void setNote(final Collection<Note> note) {
 		this.note = note;
 	}
+	@Valid
 	@ManyToMany
 	public Collection<Attachment> getAttachment() {
 		return this.attachment;

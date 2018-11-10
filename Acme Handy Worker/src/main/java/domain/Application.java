@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Range;
@@ -35,7 +37,7 @@ public class Application extends DomainEntity {
 
 
 	//Getters and Setters
-
+	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
@@ -69,6 +71,7 @@ public class Application extends DomainEntity {
 	public void setComments(final Collection<String> comments) {
 		this.comments = comments;
 	}
+	@Valid
 	@ManyToOne(optional = false)
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
@@ -77,6 +80,7 @@ public class Application extends DomainEntity {
 	public void setHandyWorker(final HandyWorker handyWorker) {
 		this.handyWorker = handyWorker;
 	}
+	@Valid
 	@ManyToOne(optional = false)
 	public CreditCard getCreditCard() {
 		return this.creditCard;
@@ -85,6 +89,7 @@ public class Application extends DomainEntity {
 	public void setCreditCard(final CreditCard creditCard) {
 		this.creditCard = creditCard;
 	}
+	@Valid
 	@ManyToOne(optional = false)
 	public FixUpTask getFixUpTask() {
 		return this.fixUpTask;
@@ -95,6 +100,7 @@ public class Application extends DomainEntity {
 	}
 
 	@OneToMany
+	@Valid
 	public Collection<Phase> getPhases() {
 		return this.phases;
 	}

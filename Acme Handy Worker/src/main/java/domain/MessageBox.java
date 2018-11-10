@@ -7,6 +7,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -28,7 +29,7 @@ public class MessageBox extends DomainEntity {
 	public void setName(final String name) {
 		this.name = name;
 	}
-
+	@Valid
 	@ManyToMany(mappedBy = "messageBox")
 	public Collection<Message> getMessages() {
 		return this.messages;

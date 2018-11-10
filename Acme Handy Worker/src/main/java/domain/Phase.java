@@ -8,6 +8,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 @Entity
@@ -35,7 +36,7 @@ public class Phase extends DomainEntity {
 	public void setDescription(final String description) {
 		this.description = description;
 	}
-
+	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getStartMoment() {

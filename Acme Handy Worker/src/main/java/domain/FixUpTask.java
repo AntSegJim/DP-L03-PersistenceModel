@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 @Entity
@@ -43,7 +45,7 @@ public class FixUpTask extends DomainEntity {
 	public void setTicker(final String ticker) {
 		this.ticker = ticker;
 	}
-
+	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
@@ -85,7 +87,7 @@ public class FixUpTask extends DomainEntity {
 	public void setPeriodTime(final Integer periodTime) {
 		this.periodTime = periodTime;
 	}
-
+	@Valid
 	@ManyToOne(optional = false)
 	public Customer getCustomer() {
 		return this.customer;
@@ -94,6 +96,7 @@ public class FixUpTask extends DomainEntity {
 	public void setCustomer(final Customer customer) {
 		this.customer = customer;
 	}
+	@Valid
 	@ManyToOne(optional = false)
 	public Category getCategory() {
 		return this.category;
@@ -102,6 +105,7 @@ public class FixUpTask extends DomainEntity {
 	public void setCategory(final Category category) {
 		this.category = category;
 	}
+	@Valid
 	@ManyToOne(optional = false)
 	public Warranty getWarranty() {
 		return this.warranty;
@@ -110,7 +114,7 @@ public class FixUpTask extends DomainEntity {
 	public void setWarranty(final Warranty warranty) {
 		this.warranty = warranty;
 	}
-
+	@Valid
 	@OneToMany
 	public Collection<Complaint> getComplaint() {
 		return this.complaint;

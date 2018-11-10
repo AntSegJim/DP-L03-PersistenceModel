@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -36,6 +38,7 @@ public class Tutorial extends DomainEntity {
 	public void setTitle(final String title) {
 		this.title = title;
 	}
+	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
@@ -53,6 +56,7 @@ public class Tutorial extends DomainEntity {
 	public void setSummary(final String summary) {
 		this.summary = summary;
 	}
+	@Valid
 	@ManyToMany
 	public Collection<Picture> getPicture() {
 		return this.picture;
@@ -61,6 +65,7 @@ public class Tutorial extends DomainEntity {
 	public void setPicture(final Collection<Picture> picture) {
 		this.picture = picture;
 	}
+	@Valid
 	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<Section> getSection() {
 		return this.section;
@@ -69,6 +74,7 @@ public class Tutorial extends DomainEntity {
 	public void setSection(final Collection<Section> section) {
 		this.section = section;
 	}
+	@Valid
 	@ManyToMany
 	public Collection<Sponsorship> getSponsorship() {
 		return this.sponsorship;

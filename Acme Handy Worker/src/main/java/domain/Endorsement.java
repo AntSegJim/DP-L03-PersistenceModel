@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 @Entity
@@ -23,6 +25,7 @@ public class Endorsement extends DomainEntity {
 	private Customer			customer;
 
 
+	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {
@@ -40,6 +43,7 @@ public class Endorsement extends DomainEntity {
 	public void setComments(final Collection<String> comments) {
 		this.comments = comments;
 	}
+	@Valid
 	@ManyToOne
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
@@ -48,6 +52,7 @@ public class Endorsement extends DomainEntity {
 	public void setHandyWorker(final HandyWorker handyWorker) {
 		this.handyWorker = handyWorker;
 	}
+	@Valid
 	@ManyToOne
 	public Customer getCustomer() {
 		return this.customer;

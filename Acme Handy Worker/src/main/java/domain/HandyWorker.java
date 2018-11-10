@@ -7,6 +7,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.Valid;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -40,7 +41,7 @@ public class HandyWorker extends Actor {
 	public void setScore(final Integer score) {
 		this.score = score;
 	}
-
+	@Valid
 	@OneToMany(mappedBy = "handyWorker")
 	public Collection<Endorsement> getEndorseHWorker() {
 		return this.endorseHWorker;
@@ -49,7 +50,7 @@ public class HandyWorker extends Actor {
 	public void setEndorseHWorker(final Collection<Endorsement> endorseHWorker) {
 		this.endorseHWorker = endorseHWorker;
 	}
-
+	@Valid
 	@OneToMany(mappedBy = "handyWorker")
 	public Collection<Endorsement> getReceiveEndorseFromHWorker() {
 		return this.receiveEndorseFromHWorker;
@@ -58,7 +59,7 @@ public class HandyWorker extends Actor {
 	public void setReceiveEndorseFromHWorker(final Collection<Endorsement> receiveEndorseFromHWorker) {
 		this.receiveEndorseFromHWorker = receiveEndorseFromHWorker;
 	}
-
+	@Valid
 	@OneToMany(mappedBy = "handyWorker")
 	public Collection<Application> getApplication() {
 		return this.application;
@@ -67,7 +68,7 @@ public class HandyWorker extends Actor {
 	public void setApplication(final Collection<Application> application) {
 		this.application = application;
 	}
-
+	@Valid
 	@OneToMany
 	public Collection<Curricula> getCurricula() {
 		return this.curricula;
@@ -76,7 +77,7 @@ public class HandyWorker extends Actor {
 	public void setCurricula(final Collection<Curricula> curricula) {
 		this.curricula = curricula;
 	}
-
+	@Valid
 	@OneToMany
 	public Collection<Tutorial> getTutorial() {
 		return this.tutorial;

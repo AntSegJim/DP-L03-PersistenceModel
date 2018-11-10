@@ -7,6 +7,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.Valid;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -26,7 +27,7 @@ public class Customer extends Actor {
 	public void setScore(final Integer score) {
 		this.score = score;
 	}
-
+	@Valid
 	@OneToMany(mappedBy = "customer")
 	public Collection<Endorsement> getEndorseCustomer() {
 		return this.endorseCustomer;
@@ -35,7 +36,7 @@ public class Customer extends Actor {
 	public void setEndorseCustomer(final Collection<Endorsement> endorseCustomer) {
 		this.endorseCustomer = endorseCustomer;
 	}
-
+	@Valid
 	@OneToMany(mappedBy = "customer")
 	public Collection<Endorsement> getReceiveEndorseFromCustomer() {
 		return this.receiveEndorseFromCustomer;

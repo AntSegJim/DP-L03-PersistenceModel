@@ -7,6 +7,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.Valid;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -16,6 +17,7 @@ public class Referee extends Actor {
 
 
 	//Getters and Setters
+	@Valid
 	@OneToMany
 	public Collection<Complaint> getComplaints() {
 		return this.complaints;

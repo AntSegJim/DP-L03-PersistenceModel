@@ -8,6 +8,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.Valid;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -27,7 +28,7 @@ public class Category extends DomainEntity {
 	public void setName(final String name) {
 		this.name = name;
 	}
-
+	@Valid
 	@ManyToOne(optional = false)
 	public Category getParent() {
 		return this.parent;
@@ -36,7 +37,7 @@ public class Category extends DomainEntity {
 	public void setParent(final Category parent) {
 		this.parent = parent;
 	}
-
+	@Valid
 	@OneToMany(mappedBy = "parent")
 	public Collection<Category> getSoon() {
 		return this.soon;
