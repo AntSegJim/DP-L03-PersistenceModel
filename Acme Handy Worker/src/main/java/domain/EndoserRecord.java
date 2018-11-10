@@ -7,9 +7,11 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
 
 @Entity
@@ -23,7 +25,8 @@ public class EndoserRecord extends DomainEntity {
 	private Collection<String>	comments;
 
 
-	//CAMBIO-> TIENE QUE SER NOTBLANK
+	@NotBlank
+	@NotNull
 	public String getName() {
 		return this.name;
 	}

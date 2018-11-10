@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
 
 @Entity
@@ -27,6 +28,8 @@ public class EducationRecord extends DomainEntity {
 	private Collection<String>	comment;
 
 
+	@NotBlank
+	@NotNull
 	public String getTitleDiploma() {
 		return this.titleDiploma;
 	}
@@ -56,6 +59,8 @@ public class EducationRecord extends DomainEntity {
 		this.endDate = endDate;
 	}
 
+	@NotBlank
+	@NotNull
 	public String getInstitution() {
 		return this.institution;
 	}

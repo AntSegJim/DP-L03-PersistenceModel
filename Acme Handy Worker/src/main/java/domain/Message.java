@@ -8,7 +8,7 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -28,7 +28,7 @@ public class Message extends DomainEntity {
 	private String					tag;
 
 	private Actor					sender;
-	private Actor					receiver;
+	private Collection<Actor>		receiver;
 
 	private Collection<MessageBox>	messageBox;
 
@@ -78,7 +78,7 @@ public class Message extends DomainEntity {
 		this.tag = tag;
 	}
 	@Valid
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	public Actor getSender() {
 		return this.sender;
 	}
@@ -87,12 +87,12 @@ public class Message extends DomainEntity {
 		this.sender = sender;
 	}
 	@Valid
-	@OneToOne(optional = false)
-	public Actor getReceiver() {
+	@ManyToMany
+	public Collection<Actor> getReceiver() {
 		return this.receiver;
 	}
 
-	public void setReceiver(final Actor receiver) {
+	public void setReceiver(final Collection<Actor> receiver) {
 		this.receiver = receiver;
 	}
 	@Valid

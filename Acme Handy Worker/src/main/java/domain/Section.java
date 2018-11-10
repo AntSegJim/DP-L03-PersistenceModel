@@ -11,20 +11,20 @@ import org.hibernate.validator.constraints.NotBlank;
 @Access(AccessType.PROPERTY)
 public class Section extends DomainEntity {
 
-	private Integer	number;
+	private int		number;
 	private String	title;
 	private String	pieceOftext;
 
 
 	//Getters
-	public Integer getNumber() {
+	public int getNumber() {
 		return this.number;
 	}
 	@NotBlank
 	public String getTitle() {
 		return this.title;
 	}
-	@NotBlank
+
 	public String getPieceOfText() {
 		return this.pieceOftext;
 	}

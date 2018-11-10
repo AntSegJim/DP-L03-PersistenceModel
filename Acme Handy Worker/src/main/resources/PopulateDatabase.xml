@@ -203,7 +203,11 @@
 		<property name="priority" value="1" />
 		<property name="tag" value="tag" />
 		<property name="sender" ref="actor1" />
-		<property name="receiver" ref="actor1" />
+		<property name="receiver" >
+			<list>
+				<ref bean="actor1"/>
+			</list>
+		</property>
 		<property name="messageBox">
 			<list>
 				<ref bean="messageBox1" />
@@ -217,8 +221,13 @@
 		<property name="body" value="Es mi cumpleaños" />
 		<property name="priority" value="2" />
 		<property name="tag" value="tag" />
-		<property name="sender" ref="actor2" />
-		<property name="receiver" ref="actor3" />
+		<property name="sender" ref="actor1" />
+		<property name="receiver" >
+			<list>
+				<ref bean="actor2" />
+				<ref bean="actor3" />
+			</list>
+		</property>
 		<property name="messageBox">
 			<list>
 				<ref bean="messageBox3" />
